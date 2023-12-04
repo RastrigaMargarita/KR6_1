@@ -1,0 +1,9 @@
+{% extends 'mailings/base.html' %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    Введите код из электронной почты.
+    <input id="code" type="text" name="code">
+    <button type="submit">Подтвердить</button>
+</form>
+{% endblock %}

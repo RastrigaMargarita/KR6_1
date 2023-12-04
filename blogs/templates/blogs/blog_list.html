@@ -1,0 +1,44 @@
+{% extends 'mailings/base.html' %}
+{% block content %}
+
+{% for object in object_list %}
+<!-- Показываем список записей блога -->
+<div class="container fs-3">
+    <div class="row">
+        <div class="col-6 text-bg-primary">Заголовок: {{ object.title }}</div>
+        <div class="col-2">
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary"><a
+                    href="blog_detail/{{ object.slug }}">Посмотреть</a>
+            </button>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary"><a href="blog_upd/{{ object.slug }}">Редактировать</a>
+            </button>
+        </div>
+        <div class="col-2 ">
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary"><a href="blog_del/{{ object.slug }}">Удалить</a>
+            </button>
+        </div>
+    </div>
+    <div class="row col-12">Описание: {{ object.description }}
+    </div>
+    <div class="row col-12">Содержание: {{ object.content }}
+    </div>
+    <div class="row col-3"><img src="/media/{{object.preview}}"/>
+
+    </div>
+    <div class="row">
+        <div class="col-3">Опубликован? {{ object.published }}</div>
+        <div class="col-2">Показан: {{ object.views_number }}</div>
+        <div class="col-7">Комментарий: {{ object.comments }}</div>
+    </div>
+
+    {% empty %}
+    <div class="col-6">Еще нет ни одной записи</div>
+    {% endfor %}
+
+</div>
+<div align="center">
+    <button type="button" class="btn btn-lg btn-block btn-outline-primary"><a href="blog_new/">Новая запись</a></button>
+</div>
+{% endblock %}

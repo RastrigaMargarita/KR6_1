@@ -1,0 +1,14 @@
+{% extends 'mailings/base.html' %}
+{% block content %}
+
+<div class="row text-left">
+<!-- Создаем новую запись -->
+    <div class="col-12">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

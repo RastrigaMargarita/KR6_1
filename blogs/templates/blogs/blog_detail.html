@@ -1,0 +1,17 @@
+{% extends 'mailings/base.html' %}
+{% block content %}
+
+<div class="row text-left">
+<!-- Просматриваем/изменяем запись -->
+    <div class="col-12">
+        <form action="" method="get" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>{{ object.title }}</div>
+            <div>{{ object.content }}</div>
+
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary"><a href="{% url 'blog_list' %}">Закрыть</a>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
